@@ -114,7 +114,7 @@ def load_curator_info(curators):
 		collection.insert(curator)
 
 if __name__ == "__main__":
-	RUN = False
+	RUN = True
 	if RUN:
 		print "Loading Curator information into Mongo"
-		load_curator_info(get_curator_info())
+		load_curator_info(get_curators())
