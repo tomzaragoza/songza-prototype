@@ -25,6 +25,15 @@ def get_activities():
 	return activities
 
 
+def get_curator_image(url):
+	source = urllib.urlopen(url).read()
+	soup = BeautifulSoup(source)
+	image_element = soup.find('img', 'browse-profile-image')
+	image_src = image_element.get('src')
+	
+	return image_src
+
+
 def get_curator_playlist(url, curator_name):
 	""" 
 		Retrieve all playlists that a guest curator has put together.
@@ -71,8 +80,14 @@ def get_curator_info():
 					all_curator_names[curator_name] = True
 					curator_url = url + link.get('href')
 					curator_playlist = get_curator_playlist(curator_url, curator_name)
+					curator_image = get_curator_image(curator_url)
 
-					curator_obj = {'name': curator_name, 'link': curator_url, 'playlists': curator_playlist}
+					curator_obj = {
+									'name': curator_name, 
+									'link': curator_url, 
+									'playlists': curator_playlist,
+									'image_url': curator_image
+								}
 
 					curators.append(curator_obj)
 
