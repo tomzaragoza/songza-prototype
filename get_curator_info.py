@@ -42,7 +42,7 @@ def get_curator_details(url, curator_name):
 	source = urllib.urlopen(url).read()
 	soup = BeautifulSoup(source)
 	
-	location = soup.find('h5', 'browse-profile-name').text
+	location = soup.find('h5', 'browse-profile-location').text
 	bio = soup.find('h3', 'browse-profile-bio').text
 
 	playlists = []
