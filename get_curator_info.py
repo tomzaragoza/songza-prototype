@@ -85,7 +85,7 @@ def get_curators():
 					curator_url = url + link.get('href')
 
 					curator_details = get_curator_details(curator_url, curator_name)
-					curator_playlist = curator_details['playlist']
+					curator_playlist = curator_details['playlists']
 					curator_location = curator_details['location']
 					curator_bio = curator_details['bio']
 
