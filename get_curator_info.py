@@ -34,13 +34,17 @@ def get_curator_image(url):
 	return image_src
 
 
-def get_curator_playlist(url, curator_name):
+def get_curator_details(url, curator_name):
 	""" 
 		Retrieve all playlists that a guest curator has put together.
 	"""
 
 	source = urllib.urlopen(url).read()
 	soup = BeautifulSoup(source)
+	
+	location = soup.find('h5', 'browse-profile-name').text
+	bio = soup.find('h3', 'browse-profile-bio').text
+
 	playlists = []
 
 	for i in soup.find_all("li", "browse-playlist"):
@@ -52,10 +56,10 @@ def get_curator_playlist(url, curator_name):
 
 		playlists.append(playlist_obj)
 
-	return playlists
+	return {'playlists': playlists, 'location': location, 'bio': bio}
 
 
-def get_curator_info():
+def get_curators():
 	""" 
 		Get all guest curators.
 	"""
@@ -79,11 +83,18 @@ def get_curator_info():
 					print curator_name
 					all_curator_names[curator_name] = True
 					curator_url = url + link.get('href')
-					curator_playlist = get_curator_playlist(curator_url, curator_name)
+
+					curator_details = get_curator_details(curator_url, curator_name)
+					curator_playlist = curator_details['playlist']
+					curator_location = curator_details['location']
+					curator_bio = curator_details['bio']
+
 					curator_image = get_curator_image(curator_url)
 
 					curator_obj = {
 									'name': curator_name, 
+									'location': curator_location,
+									'bio': curator_bio,
 									'link': curator_url, 
 									'playlists': curator_playlist,
 									'image_url': curator_image
