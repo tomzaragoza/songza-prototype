@@ -13,18 +13,30 @@ collection = db['curators']
 
 curator_names = []
 
+
+
+artist_used = {}
+
 for curator in collection.find():
 	# User Data
 	client.create_user(curator['name'])
 	
 	# Item data
-	for playlist in curator['playlists']:
+	print "Loading featured artists for {0}...".format(curator['name'])
 
-		# 1 indicates item type ID, in this case, a playlist
-		client.create_item(playlist['title'], ('1',))
+	for featured_artist in curator['featured_artists']:
+		# if featured_artist not in artist_used:
+		#	artist_used[featured_artist] = True
 
-		# Record that the current curator made this playlist
+		client.create_item(featured_artist, ('featured_artist',)) # recommend similar artists
+		# client.create_item(curator['name'], ('curator',)) # recommend similar curators
+
+		# Record that the current curator made this playlist with a certain artist, "liked"
 		client.identify(curator['name'])
-		client.record_action_on_item('like', playlist['title'])
+		client.record_action_on_item('like', featured_artist)
+
+		# else: # just to see if there are any overlapping featured artists
+		# 	print featured_artist, "USED"
+
 
 client.close()
