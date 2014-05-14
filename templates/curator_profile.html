@@ -401,7 +401,7 @@ Settings
                   <ul class="browse-playlists">
                     {% for curator in similar_curators %}
                     <li class="browse-playlist playable">
-                      <a href="{{curator['link']}}">
+                      <a href="/curator/{{curator['name']}}">
                         <div class="browse-playlist-image-wrapper">
                           <img class="browse-playlist-image" src="{{curator['image_url']}}">
                           <!-- <div class="browse-playlist-play-icon">
