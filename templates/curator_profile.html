@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   
   <title>
-    Playlists on Songza
+    Curators
   </title>
   <link rel="Shortcut Icon" type="image/x-icon" href="http://songza.com/favicon.ico">
   
@@ -166,7 +166,7 @@ Settings
         </a>
       </li>
       <li class="nav-item nav-item-explore" data-nav-id="activities" data-select-if-href-root="">
-        <a href="#discover/curators/">
+        <a href="/curators">
           Curators
         </a>
       </li>
@@ -305,25 +305,25 @@ Settings
                   <div class="browse-header">
                     <div itemscope="" itemtype="http://schema.org/MusicGroup">
                       
-                      <img class="browse-profile-image" src="/static/Playlists on Songza_files/large.jpg" width="250" itemprop="image">
+                      <img class="browse-profile-image" src="{{curator['image_url']}}" width="250" itemprop="image">
                       
                       <h1 class="browse-profile-name" itemprop="name">
-                        Jesse Sussman
+                        {{curator['name']}}
                       </h1>
                       <h5 class="browse-profile-location">
-                        NYC
+                        {{curator['location']}}
                       </h5>
                       <h3 class="browse-profile-bio">
-                        Jesse Sussman is a New York City native and the founder of Ten Million Sounds, a beat-focused label that releases instrumental hip-hop music from a worldwide cast of rising producers. He's also a guest curator for Songza.
+                        {{curator['bio']}}
                       </h3>
-                      <a class="browse-profile-url" target="_blank" href="http://www.tenmillionsounds.com/">
+                      <a class="browse-profile-url" target="_blank" href="{{curator['website']}}">
                         Website
                       </a>
                     </div>
                   </div>
                   
                   <h3 class="browse-section-header">
-                    Playlists Curated by Jesse Sussman
+                    Playlists Curated by {{curator['name']}}
                   </h3>
                   <ul class="browse-playlists">
                     <div class="browse-ad" id="ad-side">
@@ -332,13 +332,12 @@ Settings
                         </iframe>
                       </div>
                     </div>
-                    
+                    {% for playlist in playlists %}
                     <li class="browse-playlist playable" data-sz-station-id="1751881" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/wintertime-warmth-tenmillionsounds/">
+
+                      <a href="#">
                         <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image" alt="Wintertime Warmth cover image">
+                          <img class="browse-playlist-image" src="{{playlist['playlist_image_url']}}" alt="Wintertime Warmth cover image">
                           <div class="browse-playlist-play-icon">
                             <span class="ui-icon-ios7-play">
                             </span>
@@ -347,25 +346,10 @@ Settings
                           </div>
                         </div>
                         <h3 class="browse-playlist-title">
-                          Wintertime Warmth
+                          {{playlist['title']}}
                         </h3>
                         <p class="browse-playlist-description">
-                          Acoustic, modern indie-folk music ready to warm your winter chills. Works best with a mug of hot chocolate by your side.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          The Head and the Heart, 
-                          
-                          Lucy Rose, 
-                          
-                          James Vincent McMorrow, 
-                          
-                          Villagers, 
-                          
-                          City and Colour
-                          
+                          {{playlist['description']}}
                         </p>
                       </a>
                       <h4 class="browse-playlist-byline">
@@ -373,9 +357,9 @@ Settings
                           
                           Curated by 
                         </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
+                        <a href="#" class="playable-sublink">
                           <span>
-                            Jesse Sussman
+                            {{curator['name']}}
                           </span>
                         </a>
                         
@@ -407,629 +391,12 @@ Settings
                           </a>
                         </li>
                       </ul>
-                      
                     </li>
-                    
-                    <li class="browse-playlist playable playing paused" data-sz-station-id="1713666" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/keep-dreaming-morning-downtempo-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(1)" alt="Keep Dreaming: Morning Downtempo  cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          Keep Dreaming: Morning Downtempo 
-                        </h3>
-                        <p class="browse-playlist-description">
-                          This playlist is designed for that perfect moment between consciousness and unconsciousness -- when you're awake but still dreaming -- because sometimes a "snooze" should last much longer than nine minutes.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Helios, 
-                          
-                          Goldmund, 
-                          
-                          Max Richter, 
-                          
-                          Explosions In The Sky, 
-                          
-                          The Album Leaf
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/keep-dreaming-morning-downtempo-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1713666">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="Keep Dreaming: Morning Downtempo " data-share-url="http://songza.com/listen/keep-dreaming-morning-downtempo-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1713666/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="Keep Dreaming: Morning Downtempo " data-share-url="http://songza.com/listen/keep-dreaming-morning-downtempo-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1713666/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/keep-dreaming-morning-downtempo-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1682151" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/blissed-out-beats-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(2)" alt="Blissed-Out Beats cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          Blissed-Out Beats
-                        </h3>
-                        <p class="browse-playlist-description">
-                          Hypnotic instrumental beats from new artists who blend the funky, sample-based approach of J Dilla with the soothing, electronic flourishes of downtempo producers.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Taku, 
-                          
-                          Apollo Brown, 
-                          
-                          Oddisee, 
-                          
-                          Handbook, 
-                          
-                          Emancipator
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/blissed-out-beats-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable is-favorite" data-sz-station-id="1682151">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="Blissed-Out Beats" data-share-url="http://songza.com/listen/blissed-out-beats-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1682151/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="Blissed-Out Beats" data-share-url="http://songza.com/listen/blissed-out-beats-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1682151/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/blissed-out-beats-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1487918" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/downtempo-soundscapes-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(3)" alt="Downtempo Soundscapes cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          Downtempo Soundscapes
-                        </h3>
-                        <p class="browse-playlist-description">
-                          Drift off to a sublime plane of existence with these beautiful voices and downtempo electronic grooves.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Groove Armada, 
-                          
-                          Morcheeba, 
-                          
-                          Zero 7, 
-                          
-                          Chet Faker, 
-                          
-                          Bonobo
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/downtempo-soundscapes-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1487918">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="Downtempo Soundscapes" data-share-url="http://songza.com/listen/downtempo-soundscapes-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1487918/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="Downtempo Soundscapes" data-share-url="http://songza.com/listen/downtempo-soundscapes-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1487918/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/downtempo-soundscapes-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1399111" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/downtempo-instrumentals-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(4)" alt="Downtempo Instrumentals cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          Downtempo Instrumentals
-                        </h3>
-                        <p class="browse-playlist-description">
-                          Hypnotic breaks and pensive soundscapes from today's greatest electronica artists: the perfect soundtrack for reading, working, or just relaxing.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Tycho, 
-                          
-                          Hiatus, 
-                          
-                          Emancipator, 
-                          
-                          Bonobo, 
-                          
-                          Air
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/downtempo-instrumentals-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1399111">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="Downtempo Instrumentals" data-share-url="http://songza.com/listen/downtempo-instrumentals-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1399111/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="Downtempo Instrumentals" data-share-url="http://songza.com/listen/downtempo-instrumentals-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1399111/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/downtempo-instrumentals-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1386723" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/psybient-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(5)" alt="Psybient cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          Psybient
-                        </h3>
-                        <p class="browse-playlist-description">
-                          Also referred to as psychill, psybient is a genre of electronic music heavily influenced by world music and psychedelic sounds. Wherever you are, these songs will take you somewhere else.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Ott, 
-                          
-                          Koan, 
-                          
-                          Solar Fields, 
-                          
-                          Hol Baumann, 
-                          
-                          Bluetech
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/psybient-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1386723">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="Psybient" data-share-url="http://songza.com/listen/psybient-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1386723/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="Psybient" data-share-url="http://songza.com/listen/psybient-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1386723/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/psybient-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1386359" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/808s-and-brass-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(6)" alt="808s &amp; Brass cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          808s &amp; Brass
-                        </h3>
-                        <p class="browse-playlist-description">
-                          Commonly referred to as jazz hop or jazz rap, this subgenre combines jazz samples with hip hop beats.  
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Kero One, 
-                          
-                          DJ OKAWARI, 
-                          
-                          SoulChef, 
-                          
-                          Blazo, 
-                          
-                          Jazz Addixx
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/808s-and-brass-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1386359">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="808s &amp; Brass" data-share-url="http://songza.com/listen/808s-and-brass-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1386359/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="808s &amp; Brass" data-share-url="http://songza.com/listen/808s-and-brass-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1386359/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/808s-and-brass-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1381165" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/beach-grooves-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(7)" alt="Beach Grooves cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          Beach Grooves
-                        </h3>
-                        <p class="browse-playlist-description">
-                          A varied mix of smooth downtempo grooves and sunny pop handpicked for sitting by the ocean with a refreshing beverage.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Groove Armada, 
-                          
-                          Air, 
-                          
-                          Thievery Corporation, 
-                          
-                          Bonobo, 
-                          
-                          Marbert Rocel
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/beach-grooves-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1381165">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="Beach Grooves" data-share-url="http://songza.com/listen/beach-grooves-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1381165/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="Beach Grooves" data-share-url="http://songza.com/listen/beach-grooves-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1381165/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/beach-grooves-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
-                    <li class="browse-playlist playable" data-sz-station-id="1380616" data-sz-profile-id="1080874">
-                      
-                      
-                      <a href="http://songza.com/listen/3am-airport-tenmillionsounds/">
-                        <div class="browse-playlist-image-wrapper">
-                          <img class="browse-playlist-image" src="/static/Playlists on Songza_files/image(8)" alt="3am Airport cover image">
-                          <div class="browse-playlist-play-icon">
-                            <span class="ui-icon-ios7-play">
-                            </span>
-                            <span class="ui-icon-ios7-pause">
-                            </span>
-                          </div>
-                        </div>
-                        <h3 class="browse-playlist-title">
-                          3am Airport
-                        </h3>
-                        <p class="browse-playlist-description">
-                          Ambient, melancholic trip-hop and IDM that evokes the feeling of being stranded in a large airport late at night.
-                        </p>
-                        
-                        <p class="browse-playlist-featured">
-                          w/ 
-                          
-                          Burial, 
-                          
-                          Submotion Orchestra, 
-                          
-                          Boxcutter, 
-                          
-                          Thievery Corporation, 
-                          
-                          Emancipator
-                          
-                        </p>
-                      </a>
-                      <h4 class="browse-playlist-byline">
-                        <a href="http://songza.com/listen/3am-airport-tenmillionsounds/">
-                          
-                          Curated by 
-                        </a>
-                        <a href="/static/Playlists on Songza_files/Playlists on Songza.html" class="playable-sublink">
-                          <span>
-                            Jesse Sussman
-                          </span>
-                        </a>
-                        
-                      </h4>
-                      
-                      
-                      <ul class="browse-playlist-meta">
-                        <li class="browse-playlist-meta-item arrow">
-                          <span class="ui-icon-ios7-arrow-right">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item favorite favoritable" data-sz-station-id="1380616">
-                          <span class="ui-icon-ios7-star-outline">
-                          </span>
-                          <span class="ui-icon-ios7-star">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item facebook share-link" data-sz-share-system="facebook" data-share-title="3am Airport" data-share-url="http://songza.com/listen/3am-airport-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1380616/image">
-                          <span class="ui-icon-social-facebook">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item twitter share-link" data-sz-share-system="twitter" data-share-title="3am Airport" data-share-url="http://songza.com/listen/3am-airport-tenmillionsounds/" data-share-image-url="http://d2t03vq6udg69j.cloudfront.net/api/1/station/1380616/image">
-                          <span class="ui-icon-social-twitter">
-                          </span>
-                        </li>
-                        <li class="browse-playlist-meta-item similar">
-                          <a class="playable-sublink" href="http://songza.com/listen/3am-airport-tenmillionsounds/">
-                            Similar
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </li>
-                    
+                    {% endfor %}
                   </ul>
                   
                   <h3 class="browse-section-header">
-                    Similar Curators to Jesse Sussman
+                    Similar Curators to {{curator['name']}}
                   </h3>
                   <ul class="browse-playlists">
                     {% for curator in similar_curators %}

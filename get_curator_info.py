@@ -13,7 +13,7 @@ def get_activities():
 		Return a list of all activities that Songza put together.
 	"""
 
-	url = "activities.html"
+	url = "static/activities.html"
 	source = urllib.urlopen(url).read()
 
 	soup = BeautifulSoup(source)
@@ -46,6 +46,12 @@ def get_curator_details(url, curator_name):
 	location = soup.find('h5', 'browse-profile-location').text
 	bio = soup.find('h3', 'browse-profile-bio').text
 
+	try:
+		# Just in case it doesn't exist
+		website = soup.find('a', 'browse-profile-url').get('href')
+	except:
+		website = ''
+
 	playlists = []
 	featured = []
 	for i in soup.find_all("li", "browse-playlist"):
@@ -53,21 +59,30 @@ def get_curator_details(url, curator_name):
 		title = a_element.find('h3').text
 		description = a_element.find('p', 'browse-playlist-description').text
 		playlist_featured = a_element.find('p', 'browse-playlist-featured').text
+		playlist_image_url = a_element.find('img', 'browse-playlist-image').get('src')
 
 		for artist in playlist_featured.split(','):
 			artist_name = artist.replace('\n', '').replace('w/', '').strip() 
 			if artist_name not in featured:
 				featured.append(artist_name)
 
+		# TODO: need playlist image url, curator's website url
 		playlist_obj = {
 							'title': title, 
+							'playlist_image_url': playlist_image_url,
 							'curator': curator_name, 
 							'description': description
 						}
 
 		playlists.append(playlist_obj)
 
-	return {'playlists': playlists, 'location': location, 'bio': bio, 'featured': featured}
+	return {	
+				'playlists': playlists, 
+				'location': location, 
+				'bio': bio, 
+				'website': website, 
+				'featured': featured
+			}
 
 
 def get_curators():
@@ -100,6 +115,8 @@ def get_curators():
 					curator_playlist = curator_details['playlists']
 					curator_location = curator_details['location']
 					curator_bio = curator_details['bio']
+					curator_website = curator_details['website']
+
 					featured_artists = curator_details['featured']
 
 					curator_image = get_curator_image(curator_url)
@@ -109,6 +126,7 @@ def get_curators():
 									'location': curator_location,
 									'featured_artists': featured_artists,
 									'bio': curator_bio,
+									'website': curator_website,
 									'link': curator_url, 
 									'playlists': curator_playlist,
 									'image_url': curator_image,
@@ -147,7 +165,6 @@ def load_featured_artists(curators):
 				featured_artists_coll.insert(featured_artist_obj)
 			else:
 				if curator['name'] not in featured_artist_obj['curators']:
-					print featured_artist_obj['curators']
 					featured_artist_obj['curators'].append(curator['name'])
 					featured_artists_coll.update({'name': artist}, featured_artist_obj, upsert=True)
 
