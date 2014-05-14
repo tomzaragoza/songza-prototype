@@ -1,6 +1,6 @@
 # Songza Curator Prototype
 
-The idea of this prototype is to demonstrate how Songza could make use Curator data. It shows a page of curators, and on a profile page for the curators, it shows similar curators.
+The purpose of this prototype is to demonstrate how Songza could make use Curator data. It shows a page of curators, and on a profile page for the curators, it shows similar curators.
 
 Requirements
 
