@@ -129,7 +129,7 @@ def load_curator_info(curators):
 		curators_coll.insert(curator)
 
 
-def load_featured_artists(curators=curators_coll.find()):
+def load_featured_artists(curators):
 	""" 
 		Load featured artists and the curators that have used them
 		into Mongo.
@@ -156,6 +156,6 @@ if __name__ == "__main__":
 	RUN = True
 	if RUN:
 		print "Loading Curator information into Mongo"
-		# curators = get_curators()
-		# load_curator_info(curators)
-		load_featured_artists()
+		curators = get_curators()
+		load_curator_info(curators)
+		load_featured_artists(curators)
