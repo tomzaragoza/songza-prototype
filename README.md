@@ -9,7 +9,7 @@ Requirements
 
 
 
-First, run these commands to setup a virtual environment and to install the required Python modules
+First, navigate to the project folder then run these commands to setup a virtual environment and to install the required Python modules
 ```
 virtualenv venv
 source venv/bin/activate
